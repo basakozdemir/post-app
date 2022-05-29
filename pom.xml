@@ -17,6 +17,15 @@
         <java.version>17</java.version>
     </properties>
 
+    <!--there is no source code in main project -->
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>libs-aggregator</module>
+        <module>services-aggregator</module>
+
+    </modules>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
