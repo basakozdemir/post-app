@@ -18,6 +18,7 @@
         <java.version>17</java.version>
     </properties>
 
+    <packaging>pom</packaging>
 
 
 </project>
