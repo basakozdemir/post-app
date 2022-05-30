@@ -22,6 +22,10 @@
 
     <modules>
         <module>common-sql</module>
+        <module>common-nosql</module>
+        <module>common-queue</module>
+        <module>common-security</module>
+        <module>common-model</module>
     </modules>
 
 
