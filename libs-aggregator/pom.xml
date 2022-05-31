@@ -18,7 +18,7 @@
         <java.version>17</java.version>
     </properties>
 
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <modules>
         <module>common-sql</module>
