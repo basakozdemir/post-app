@@ -18,7 +18,7 @@
         <java.version>17</java.version>
     </properties>
 
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <modules>
         <module>common-sql</module>
@@ -27,6 +27,13 @@
         <module>common-security</module>
         <module>common-model</module>
     </modules>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
 </project>
