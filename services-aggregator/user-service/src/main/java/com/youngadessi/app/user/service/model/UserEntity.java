@@ -1,17 +1,20 @@
 package com.youngadessi.app.user.service.model;
 
+import com.youngadessi.app.common.sql.model.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "tbl_user")
 @Getter
 @Setter
-public class UserEntity {
+public class UserEntity extends BaseEntity {
+
     @Id
     @Column(name = "id")
     private Long id;
@@ -19,27 +22,10 @@ public class UserEntity {
     @Column(name = "username")
     private String username;
 
-    @Column(name = "surname")
-    private String surname;
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "email")
     private String email;
 
-    @Column(name = "create_time")
-    private Date createTime;
-
-    @Column(name = "update_time")
-    private Date updateTime;
-
-    @OneToMany
-    @JoinColumn(name = "author_id")
-    private List<TagEntity> tags;
-
-    @OneToMany
-    @JoinColumn(name = "author_id")
-    private List<PostEntity> posts;
-
-    @OneToMany
-    @JoinColumn(name = "user_id")
-    private List<CommentEntity> comments;
 }
