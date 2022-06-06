@@ -37,7 +37,7 @@ public class PostEntity {
     @Column(name = "status")
     private boolean status;
 
-    //relation tablosuyla nasıl olacak
+    /*relation tablosuyla nasıl olacak
     @OneToMany
     @Fetch(FetchMode.JOIN) //??
     private List<PostTagsEntity> postTags;
@@ -49,4 +49,6 @@ public class PostEntity {
     @OneToMany
     @JoinColumn(name = "post_id")
     private List<CommentEntity> comments;
+
+     */
 }

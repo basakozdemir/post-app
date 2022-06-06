@@ -32,7 +32,10 @@ public class TagEntity {
     @Column(name = "status")
     private boolean status;
 
+    /*
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
+
+     */
 }

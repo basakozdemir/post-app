@@ -32,11 +32,13 @@ public class CommentEntity {
     @Column(name = "status")
     private boolean status;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
     @ManyToOne
     @JoinColumn(name = "post_id")
     private PostEntity post;
+
+     */
 }
