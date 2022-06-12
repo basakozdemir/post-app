@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "post_tags")
+@Table(name = "tbl_post_tags")
 @Getter
 @Setter
 public class PostTagsEntity {

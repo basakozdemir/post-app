@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "comment")
+@Table(name = "tbl_comment")
 @Getter
 @Setter
 public class CommentEntity {

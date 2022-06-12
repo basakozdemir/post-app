@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "post")
+@Table(name = "tbl_post")
 @Getter
 @Setter
 public class PostEntity {

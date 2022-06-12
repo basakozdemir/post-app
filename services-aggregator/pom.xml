@@ -26,6 +26,7 @@
     <modules>
         <module>post-service</module>
         <module>auth-service</module>
+        <module>user-service</module>
     </modules>
 
 </project>
