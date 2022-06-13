@@ -1,5 +1,7 @@
 package com.youngadessi.app.post.service.entity;
 
+import com.youngadessi.app.common.sql.model.BaseEntity;
+import com.youngadessi.app.user.service.model.UserEntity;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Fetch;
@@ -14,7 +16,7 @@ import java.util.List;
 @Table(name = "tbl_post")
 @Getter
 @Setter
-public class PostEntity {
+public class PostEntity extends BaseEntity {
     @Id
     @Column(name = "id")
     private Long id;
@@ -25,30 +27,18 @@ public class PostEntity {
     @Column(name = "content")
     private String content;
 
+    /*
     @Column(name = "author_id")
     private Long authorId;
-
-    @Column(name = "create_time")
-    private Date createTime;
-
-    @Column(name = "update_time")
-    private Date updateTime;
-
-    @Column(name = "status")
-    private boolean status;
-
-    /*relation tablosuyla nasıl olacak
-    @OneToMany
-    @Fetch(FetchMode.JOIN) //??
-    private List<PostTagsEntity> postTags;
+    */
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "author_id")
     private UserEntity user;
 
-    @OneToMany
-    @JoinColumn(name = "post_id")
-    private List<CommentEntity> comments;
+    @ManyToMany
+    private List<TagEntity> tagList;
 
-     */
+    @OneToMany
+    private List<CommentEntity> commentList;
 }

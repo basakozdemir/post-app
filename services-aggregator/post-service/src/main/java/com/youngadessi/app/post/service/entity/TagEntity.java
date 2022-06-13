@@ -1,18 +1,18 @@
 package com.youngadessi.app.post.service.entity;
 
+import com.youngadessi.app.common.sql.model.BaseEntity;
+import com.youngadessi.app.user.service.model.UserEntity;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "tbl_tag")
 @Getter
 @Setter
-public class TagEntity {
+public class TagEntity extends BaseEntity {
     @Id
     @Column(name = "id")
     private Long id;
@@ -20,22 +20,15 @@ public class TagEntity {
     @Column(name = "tag_name")
     private String tagName;
 
+    /*
     @Column(name = "author_id")
     private Long authorId;
+    */
 
-    @Column(name = "create_time")
-    private Date createTime;
-
-    @Column(name = "update_time")
-    private Date updateTime;
-
-    @Column(name = "status")
-    private boolean status;
-
-    /*
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "author_id")
     private UserEntity user;
 
-     */
+    @ManyToMany(mappedBy = "tagList")
+    private List<PostEntity> postList;
 }

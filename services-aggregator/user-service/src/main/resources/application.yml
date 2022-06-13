@@ -1,3 +1,5 @@
+server:
+  port: 8082
 spring:
   config:
     import:
@@ -7,4 +9,4 @@ spring:
   datasource:
     hikari:
       pool-name: HikariUserServiceConnection
-      schema: user-schema
+      schema: user_schema

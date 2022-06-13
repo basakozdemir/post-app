@@ -1,4 +1,4 @@
-package com.youngadessi.app.user.service.model;
+package com.youngadessi.app.user.service.dto;
 
 import java.util.Date;
 
@@ -7,7 +7,7 @@ public class UserDto {
     private String username;
     private String surname;
     private String email;
-    private Date createTime;
-    private Date updateTime;
+    private Date createTimestamp;
+    private Date updateTimestamp;
 
 }
