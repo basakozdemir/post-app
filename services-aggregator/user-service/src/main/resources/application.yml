@@ -1,0 +1,13 @@
+spring:
+  config:
+    import:
+      - application-sql.yml
+---
+spring:
+  datasource:
+    hikari:
+      pool-name: HikariUserServiceConnection
+      schema: user_schema
+
+server:
+  port: 9090
