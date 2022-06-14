@@ -24,10 +24,6 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class User extends BaseEntity {
 
-    @Id
-    @Column(name = "id")
-    private Long id;
-
     @Column(name = "fullname")
     private String fullname;
 
