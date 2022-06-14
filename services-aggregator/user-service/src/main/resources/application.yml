@@ -7,4 +7,7 @@ spring:
   datasource:
     hikari:
       pool-name: HikariUserServiceConnection
-      schema: user-schema
+      schema: user_schema
+
+server:
+  port: 9090
