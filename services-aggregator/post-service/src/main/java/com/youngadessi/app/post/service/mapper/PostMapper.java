@@ -1,8 +1,6 @@
 package com.youngadessi.app.post.service.mapper;
 
-import com.youngadessi.app.post.service.dto.CommentDto;
 import com.youngadessi.app.post.service.dto.PostDto;
-import com.youngadessi.app.post.service.entity.Comment;
 import com.youngadessi.app.post.service.entity.Post;
 import org.mapstruct.Mapper;
 
