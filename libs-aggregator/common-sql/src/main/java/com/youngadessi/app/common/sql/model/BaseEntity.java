@@ -1,15 +1,19 @@
 package com.youngadessi.app.common.sql.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Getter
+@Setter
 @MappedSuperclass
 public abstract class BaseEntity {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "created_time")
