@@ -1,4 +1,4 @@
-package com.youngadessi.app.post.service.entity;
+package com.youngadessi.app.post.service.model.entity;
 
 import com.youngadessi.app.common.sql.model.BaseEntity;
 
@@ -8,7 +8,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.awt.*;
 import java.util.List;
 
 // predefined values
