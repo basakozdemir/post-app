@@ -1,4 +1,4 @@
-package com.youngadessi.app.post.service.entity;
+package com.youngadessi.app.post.service.model.entity;
 
 import com.youngadessi.app.common.sql.model.BaseEntity;
 

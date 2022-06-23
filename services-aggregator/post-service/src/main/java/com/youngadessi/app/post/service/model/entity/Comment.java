@@ -1,11 +1,10 @@
-package com.youngadessi.app.post.service.entity;
+package com.youngadessi.app.post.service.model.entity;
 
 import com.youngadessi.app.common.sql.model.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "tbl_comment")
