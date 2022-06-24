@@ -1,20 +1,21 @@
 package com.youngadessi.app.post.service.model.dto;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Getter
 @Setter
+@Component
 public class PostCreateDTO {
 
     private String title;
 
     private String content;
 
-    private List<CommentCreateDTO> commentCreateDTOS;
+    //private List<CommentCreateDTO> commentCreateDTOS;
 
-    private List<TagCreateDTO> tagCreateDTOS;
+    private List<TagDTO> tagDTOS;
 }

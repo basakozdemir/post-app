@@ -9,5 +9,5 @@ public class CommentCreateDTO {
 
     private String commentText;
 
-    private PostCreateDTO postCreateDto;
+    //private PostCreateDTO postCreateDto;
 }
