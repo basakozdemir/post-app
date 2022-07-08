@@ -6,8 +6,10 @@ spring:
 spring:
   datasource:
     hikari:
-      pool-name: HikariUserServiceConnection
+      pool-name: HikariPostServiceConnection
       schema: post_schema
 
 server:
   port: 9091
+  servlet:
+    context-path: /api/post-service

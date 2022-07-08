@@ -25,7 +25,6 @@ public class UserService {
         user.setFullname(userCreateDTO.getFullname());
         user.setPassword(userCreateDTO.getPassword());
         user.setUsername(userCreateDTO.getUsername());
-
         userRepository.save(user);
 
     }

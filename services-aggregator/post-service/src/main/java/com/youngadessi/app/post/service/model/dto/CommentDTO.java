@@ -4,10 +4,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CommentCreateDTO {
-
+public class CommentDTO {
 
     private String commentText;
 
-    //private PostCreateDTO postCreateDto;
+    //private PostReadDTO postReadDTO;
 }

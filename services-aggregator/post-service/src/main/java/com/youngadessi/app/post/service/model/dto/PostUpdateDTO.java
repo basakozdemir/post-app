@@ -2,20 +2,20 @@ package com.youngadessi.app.post.service.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Getter
 @Setter
-@Component
-public class PostCreateDTO {
+public class PostUpdateDTO {
+
 
     private String title;
 
-    private String content;
+    //we do not want to change content of a post
+    //private String content;
 
-    //private List<CommentDTO> commentDTOS;
+    //private List<CommentCreateDTO> commentCreateDTOS;
 
     private List<TagDTO> tagDTOS;
 }
