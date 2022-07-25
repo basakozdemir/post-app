@@ -8,6 +8,8 @@ spring:
     hikari:
       pool-name: HikariUserServiceConnection
       schema: user_schema
+  main:
+    allow-bean-definition-overriding: true
 
 server:
   port: 9090
