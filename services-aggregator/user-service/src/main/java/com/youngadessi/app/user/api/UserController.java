@@ -4,6 +4,7 @@ import com.youngadessi.app.user.dto.UserCreateDTO;
 import com.youngadessi.app.user.dto.UserReadDTO;
 import com.youngadessi.app.user.dto.UserUpdateDTO;
 import com.youngadessi.app.user.service.UserService;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createUser(@RequestBody  UserCreateDTO userCreateDTO){
+    public ResponseEntity<String> createUser(@RequestBody UserCreateDTO userCreateDTO){
         userService.createUser(userCreateDTO);
         return new ResponseEntity<>("User created successfuly", HttpStatus.OK);
     }
