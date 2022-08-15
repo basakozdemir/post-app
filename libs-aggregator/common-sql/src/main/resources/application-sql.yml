@@ -1,17 +1,11 @@
-version: "3.7"
-services:
-  postgresql:
-    hostname: postgresql-service
-    container_name: postgresql-service
-    image: postgres
-    restart: always
-    ports:
-      - "5432:5432"
-    environment:
-      - "POSTGRES_PASSWORD=youngadessi"
-      - "POSTGRES_HOST_AUTH_METHOD=md5"
-    volumes:
-      - youngadessi_postgresql_data:/var/lib/postgresql/data
-      #- ./init.sql:/docker-entrypoint-initdb.d/init.sql
-volumes:
-  youngadessi_postgresql_data:
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: youngadessi
+    hikari:
+      maximum-pool-size: 20
+  jpa:
+    show-sql: true
+    generate-ddl: true
+
