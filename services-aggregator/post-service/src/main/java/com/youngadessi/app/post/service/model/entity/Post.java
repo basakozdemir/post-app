@@ -3,8 +3,13 @@ package com.youngadessi.app.post.service.model.entity;
 import com.youngadessi.app.common.sql.model.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -25,10 +30,10 @@ public class Post extends BaseEntity {
     @Column(name = "content")
     private String content;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    @OneToMany(mappedBy = "post")
     private List<Comment> comments;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
             name = "tbl_post_tags",
             joinColumns = @JoinColumn(name = "post_id",referencedColumnName = "id"),
