@@ -1,15 +1,20 @@
 package com.youngadessi.app.post.service.mapper;
 
-import com.youngadessi.app.post.service.model.dto.CommentDTO;
-import com.youngadessi.app.post.service.model.entity.Comment;
+import com.youngadessi.app.post.service.dto.CommentDto;
+import com.youngadessi.app.post.service.entity.CommentEntity;
 import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper
 public interface CommentMapper {
-    CommentDTO comment2CommentDto(Comment comment);
-    Comment commentDto2Comment(CommentDTO commentDTO);
-    List<Comment> commentDtoList2CommentList(List<CommentDTO> commentDTOList);
-    List<CommentDTO> commentList2CommentDtoList(List<Comment> commentList);
+
+    CommentEntity DtoToEntity(CommentDto post);
+
+    CommentDto EntityToDto(CommentEntity dto);
+
+    List<CommentDto> EntityListToDtoList(List<CommentEntity> postList);
+
+    List<CommentEntity> DtoListToEntityList(List<CommentDto> postList);
+
 }

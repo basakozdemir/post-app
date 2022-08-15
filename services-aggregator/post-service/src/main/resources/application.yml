@@ -1,15 +1,7 @@
-spring:
-  config:
-    import:
-      - application-sql.yml
----
+server:
+  port: 8081
 spring:
   datasource:
     hikari:
-      pool-name: HikariPostServiceConnection
-      schema: post_schema
-
-server:
-  port: 9091
-  servlet:
-    context-path: /api/post-service
+      pool-name: HikariUserServiceConnection
+      schema: post-schema

@@ -1,4 +1,4 @@
-package com.youngadessi.model.common.model;
+package com.youngadessi.app.post.service.dto;
 
 public class PostTagsDto {
     private Long postId;

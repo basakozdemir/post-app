@@ -1,17 +1,18 @@
 package com.youngadessi.app.post.service.mapper;
 
-import com.youngadessi.app.post.service.model.dto.TagDTO;
-import com.youngadessi.app.post.service.model.entity.Tag;
+import com.youngadessi.app.post.service.dto.TagDto;
+import com.youngadessi.app.post.service.entity.TagEntity;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 
 import java.util.List;
-
-@Mapper(componentModel = "spring")
+@Mapper
 public interface TagMapper {
 
-    Tag tagDto2TagEntity(TagDTO tagCreateDTO);
+    TagEntity DtoToEntity(TagDto post);
 
-    TagDTO tagEntity2TagDto(Tag tag);
+    TagDto EntityToDto(TagEntity dto);
+
+    List<TagDto> EntityListToDtoList(List<TagEntity> postList);
+
+    List<TagEntity> DtoListToEntityList(List<TagDto> postList);
 }

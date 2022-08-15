@@ -1,4 +1,4 @@
-package com.youngadessi.model.common.model;
+package com.youngadessi.app.user.service.model;
 
 import java.util.Date;
 
