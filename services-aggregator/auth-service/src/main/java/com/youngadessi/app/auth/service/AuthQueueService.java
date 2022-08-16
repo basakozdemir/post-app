@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 import java.io.Serializable;
 import java.util.UUID;
 
-@Service
+//@Service
 @RequiredArgsConstructor
 public class AuthQueueService {
 

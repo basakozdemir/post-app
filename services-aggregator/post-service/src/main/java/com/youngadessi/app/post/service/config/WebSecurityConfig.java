@@ -1,8 +1,11 @@
-package com.youngadessi.app.auth.service.config;
+package com.youngadessi.app.post.service.config;
 
 import com.youngadessi.app.auth.service.controller.AuthenticationController;
 import com.youngadessi.app.auth.service.service.JwtUserDetailsService;
 import com.youngadessi.app.auth.service.util.JwtRequestFilter;
+import com.youngadessi.app.auth.service.util.JwtTokenUtil;
+
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,18 +20,38 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.stereotype.Component;
 
 @Configuration
-@RequiredArgsConstructor
+@Component
 @EnableWebSecurity
-public class WebSecurityConfig {
-    @Autowired
-    private AuthenticationController JWTauthenticationEntryPoint;
-    @Autowired
-    private JwtRequestFilter jwtRequestFilter;
+public class WebSecurityConfig{
 
-    @Autowired
-    private JwtUserDetailsService jwtUserDetailsService;
+    @Bean
+    public AuthenticationController authenticationController(){
+        return new AuthenticationController();
+    }
+
+    @Bean
+    public JwtRequestFilter jwtRequestFilter(){
+        return new JwtRequestFilter();
+    }
+
+    @Bean
+    public JwtUserDetailsService jwtUserDetailsService(){
+        return new JwtUserDetailsService();
+    }
+
+    @Bean
+    public JwtTokenUtil jwtTokenUtil(){
+        return new JwtTokenUtil();
+    }
+
+    //@Bean
+    //public UserDetailsService userDetailsService(){
+     //   return new UserDetailsService();
+    //}
+
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -44,10 +67,10 @@ public class WebSecurityConfig {
                 .authorizeRequests().antMatchers("/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .exceptionHandling().authenticationEntryPoint(JWTauthenticationEntryPoint)
+                .exceptionHandling().authenticationEntryPoint(authenticationController())
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(jwtRequestFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
@@ -56,7 +79,7 @@ public class WebSecurityConfig {
             throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
                 .userDetailsService(userDetailsService)
-                .passwordEncoder(bCryptPasswordEncoder)
+                .passwordEncoder(bCryptPasswordEncoder())
                 .and()
                 .build();
     }
