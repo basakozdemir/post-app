@@ -47,11 +47,6 @@ public class WebSecurityConfig{
         return new JwtTokenUtil();
     }
 
-    //@Bean
-    //public UserDetailsService userDetailsService(){
-     //   return new UserDetailsService();
-    //}
-
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -64,7 +59,7 @@ public class WebSecurityConfig{
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                .authorizeRequests().antMatchers("/login").permitAll()
+                .authorizeRequests().antMatchers("*/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(authenticationController())

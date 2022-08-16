@@ -1,5 +1,9 @@
 package com.youngadessi.app.post.service.api;
 
+import com.youngadessi.app.auth.service.model.JwtRequestDTO;
+import com.youngadessi.app.auth.service.model.JwtResponseDTO;
+import com.youngadessi.app.auth.service.service.JwtUserDetailsService;
+import com.youngadessi.app.auth.service.util.JwtTokenUtil;
 import com.youngadessi.app.post.service.model.dto.PostCreateDTO;
 import com.youngadessi.app.post.service.model.dto.PostReadDTO;
 import com.youngadessi.app.post.service.model.dto.PostUpdateDTO;
@@ -11,8 +15,14 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +31,8 @@ import java.util.List;
 @RequestMapping("/posts")
 @RequiredArgsConstructor
 public class PostController {
-
+    private JwtUserDetailsService jwtUserDetailsService;
+    private JwtTokenUtil jwtTokenUtil;
     private final PostService postService;
 
     @Tag(name = "v1 - CMS Post API", description = "Maintain CMS Post API")
@@ -82,6 +93,11 @@ public class PostController {
         List<PostReadDTO> postReadDTOS = postService.searchByTitle(title);
         return new ResponseEntity<>(postReadDTOS, HttpStatus.OK);
     }
-
+//    @PostMapping("/login")
+//    public ResponseEntity<JwtResponseDTO> createToken(@RequestBody JwtRequestDTO request) throws Exception {
+//        final UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(request.getUsername());
+//        final String jwtToken = jwtTokenUtil.generateJwtToken(userDetails);
+//        return ResponseEntity.ok(new JwtResponseDTO(jwtToken));
+//    }
 
 }

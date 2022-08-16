@@ -42,9 +42,4 @@ public class UserController {
         final String jwtToken = jwtTokenUtil.generateJwtToken(userDetails);
         return ResponseEntity.ok(new JwtResponseDTO(jwtToken));
     }
-
-    @PostMapping("/validate")
-    public ResponseEntity<Boolean> validateToken(){
-        return new ResponseEntity<>(Boolean.TRUE, HttpStatus.OK);
-    }
 }
