@@ -13,7 +13,7 @@ public class JwtUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         if ("test".equals(username)) {
             return new User("test",
-                    "$2a$10$CYhJhCdLLGWOr3KRoea4Au8rRBChXw0CBeqhZK7fwiX.HTnnb8QJe",
+                    "$2a$12$KgXXIOl2WGKXIaeItAyJn.C8aLGmZDivylQVRHQMvJvyiwHyjaDaO",
                     new ArrayList<>());
         } else {
             throw new UsernameNotFoundException("User not found with username: " + username);

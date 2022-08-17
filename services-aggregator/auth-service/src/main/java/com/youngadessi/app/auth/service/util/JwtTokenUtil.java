@@ -18,25 +18,19 @@ import java.util.HashMap;
 import java.util.Map;
 @Component
 public class JwtTokenUtil {
-    private static final long serialVersionUID = 7008375124389347049L;
-    public static final long TOKEN_VALIDITY = 10 * 60 * 60; @Value("somerandomsecret")
+    public static final long TOKEN_VALIDITY = 10 * 60 * 60;
+    @Value("jwt_secret")
     private String jwtSecret;
     public String generateJwtToken(UserDetails userDetails) throws UnsupportedEncodingException {
         Map<String, Object> claims = new HashMap<>();
-        Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+        Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
-        return Jwts.builder().setIssuedAt(new Date(System.currentTimeMillis())).signWith(key).compact();
-
-       /* return Jwts.builder().setClaims(claims).setSubject(userDetails.getUsername())
+        return Jwts.builder().setClaims(claims)
+                .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + TOKEN_VALIDITY * 1000))
-                .signWith(
-                        SignatureAlgorithm.HS256,
-                        "somerandomsecret".getBytes("UTF-8")
-                ).compact();
-
-        */
-                //.signWith(SignatureAlgorithm.HS256, jwtSecret).compact();
+                .signWith(key)
+                .compact();
     }
     public Boolean validateJwtToken(String token, UserDetails userDetails) {
         String username = getUsernameFromToken(token);

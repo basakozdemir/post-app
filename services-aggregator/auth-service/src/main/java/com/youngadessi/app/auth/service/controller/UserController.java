@@ -30,14 +30,6 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<JwtResponseDTO> createToken(@RequestBody JwtRequestDTO request) throws Exception {
-        try {
-            authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
-        } catch (DisabledException e) {
-            throw new Exception("USER_DISABLED", e);
-        } catch (BadCredentialsException e) {
-            throw new Exception("INVALID_CREDENTIALS", e);
-        }
         final UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(request.getUsername());
         final String jwtToken = jwtTokenUtil.generateJwtToken(userDetails);
         return ResponseEntity.ok(new JwtResponseDTO(jwtToken));
